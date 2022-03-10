@@ -1,0 +1,61 @@
+#logo{
+    text-align:center;
+    font-size: 4vw;
+    background-color: teal;
+}
+.gamepanel{
+    border: 2px solid rgb(0, 128, 79);
+    padding-top: 3.7vw;
+    padding-bottom: 3.7vw;
+    text-align: center;
+    font-size:1.4vw;
+    font-weight: bold;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    height:2vh;
+}
+#blackjack{
+    background-image: url("../img/gamepanelbg/blackjack.png");
+    background-size: auto 100%;
+}
+#gamepanels{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap:2vw 2vw;
+    width:94.7%;
+    background-color: rgba(131, 185, 21, 0.623);
+    float:left;
+    grid-auto-rows: 1fr;
+    padding:2vw;
+}
+#status{
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    text-align: center;
+    width:100%;
+    background-color: rgba(252, 105, 52, 0.705);
+    float:left;
+}
+#loginbtn{
+    float:right;
+}
+a{
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+}
+#login{
+    background-color: rgba(238, 130, 238, 0.678);
+    width:22vw;
+    padding:2vw;
+    float:left;
+}
+body{
+    margin:0;
+}
+#content{
+    width:75%;
+    float:left;
+}
+#sidecontent{
+    width:25%;
+    float:right;
+}
