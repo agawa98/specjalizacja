@@ -1,7 +1,6 @@
 var szerokosc = window.innerWidth;
 var wysokosc = window.innerHeight;
 
-
 Crafty.init(document.getElementById("gamediv"));
 
 Crafty.sprite(80, "img/sprites/kapusta.png",{
@@ -19,7 +18,6 @@ Crafty.sprite(40, "img/sprites/sprites40.png",{
 })
 
 function generateWorld(){
-    
     for(let wc=0;wc<szerokosc;wc+=40){
         for(let hc=0;hc<wysokosc;hc+=40){   
             let los = Math.floor(Math.random()*100)
@@ -30,8 +28,7 @@ function generateWorld(){
             else{
                 Crafty.e("2D, Canvas, ground")                      
                 .attr({x:wc, y:hc})  
-            }                   
-                               
+            }                                  
         }                       
     }                       
     for(let hc=0;hc<wysokosc;hc+=40){                       
@@ -100,44 +97,35 @@ function spawnBullet(){
     if(SpawnStation == "W"){
         xspawn=-100;
         yspawn=wysokosc/2
-
     }
     if(SpawnStation == "NW"){
         xspawn=-100;
         yspawn=wysokosc+100
-        
     }
     if(SpawnStation == "N"){
         xspawn=szerokosc/2
         yspawn=wysokosc+100
-        
     }
     if(SpawnStation == "NE"){
         xspawn=szerokosc+100
         yspawn=wysokosc+100
-        
     }
     if(SpawnStation == "E"){
         xspawn=szerokosc+100
         yspawn=wysokosc/2
-        
     }
     if(SpawnStation == "SE"){
         xspawn=szerokosc+100
         yspawn=-100
-        
     }
     if(SpawnStation == "S"){
         xspawn=szerokosc/2
         yspawn=-100
-        
     }
     if(SpawnStation == "SW"){
         xspawn=-100;
         yspawn=-100
-        
     }
-        
     robak = Crafty.e("2D, Canvas, Collision, robak, Motion")
     .attr({x:xspawn, y:yspawn, w:60, h:60})
     .checkHits("kapusta")
@@ -146,8 +134,6 @@ function spawnBullet(){
     })
     robak.vx = randomXVel
     robak.vy = randomYVel
-    
-
 }
 
 Crafty.scene("main", function(){
@@ -158,10 +144,6 @@ Crafty.scene("main", function(){
     .collision()
 
     setInterval(spawnBullet,200);
-
-    
 });
 
 Crafty.enterScene("main");
-    
-
