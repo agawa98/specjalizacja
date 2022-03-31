@@ -17,6 +17,14 @@
     background-image: url("../img/gamepanelbg/blackjack.png");
     background-size: auto 100%;
 }
+#wisielec{
+    background-image: url("../img/gamepanelbg/wisielec.png");
+    background-size: auto 100%;
+}
+#robaki{
+    background-image: url("../img/gamepanelbg/robak.png");
+    background-size: auto 100%;
+}
 #gamepanels{
     display: grid;
     grid-template-columns: auto auto auto auto auto;
@@ -24,7 +32,6 @@
     width:94.7%;
     background-color: rgba(131, 185, 21, 0.623);
     float:left;
-    grid-auto-rows: 1fr;
     padding:2vw;
 }
 #status{

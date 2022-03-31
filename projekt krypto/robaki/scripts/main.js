@@ -12,7 +12,10 @@ Crafty.sprite(40, "img/sprites/sprites40.png",{
     wally:[0,0],
     wallx:[1,0],
     groundcarrot:[0,1],
-    ground:[1,1]
+    ground:[1,1],
+    robak:[0,2],
+    fencey:[0,3],
+    fencex:[1,3]
 })
 
 function generateWorld(){
@@ -32,36 +35,44 @@ function generateWorld(){
         }                       
     }                       
     for(let hc=0;hc<wysokosc;hc+=40){                       
-        Crafty.e("2D, Canvas, Collision, wally")                        
+        Crafty.e("2D, Canvas, Collision, ground")                        
         .attr({x:0, y:hc})
         .checkHits("kapusta")
         .bind("HitOn", function(){
             kapusta.x+=7;
         })
+        Crafty.e("2D, Canvas, fencey")
+        .attr({x:0, y:hc})
     }
     for(let hc=0;hc<wysokosc;hc+=40){
-        Crafty.e("2D, Canvas, Collision, wally")
+        Crafty.e("2D, Canvas, Collision, ground")
         .attr({x:szerokosc-40, y:hc})
         .checkHits("kapusta")
         .bind("HitOn", function(){
             kapusta.x-=7;
         })
+        Crafty.e("2D, Canvas, fencey")
+        .attr({x:szerokosc-40, y:hc})
     }
     for(let wc=0;wc<szerokosc;wc+=40){
-        Crafty.e("2D, Canvas, Collision, wallx")
+        Crafty.e("2D, Canvas, Collision, ground")
         .attr({x:wc, y:0})
         .checkHits("kapusta")
         .bind("HitOn", function(){
             kapusta.y+=7;
         })
+        Crafty.e("2D, Canvas, fencex")
+        .attr({x:wc, y:0})
     }
     for(let wc=0;wc<szerokosc;wc+=40){
-        Crafty.e("2D, Canvas, Collision, wallx")
+        Crafty.e("2D, Canvas, Collision, ground")
         .attr({x:wc, y:wysokosc-40})
         .checkHits("kapusta")
         .bind("HitOn", function(){
             kapusta.y-=7;
         })
+        Crafty.e("2D, Canvas, fencex")
+        .attr({x:wc, y:wysokosc-40})
     }
 }
 
@@ -127,15 +138,14 @@ function spawnBullet(){
         
     }
         
-    ant = Crafty.e("2D, Canvas, Collision, robak, Motion, Color")
+    robak = Crafty.e("2D, Canvas, Collision, robak, Motion")
     .attr({x:xspawn, y:yspawn, w:60, h:60})
-    .color("black")
     .checkHits("kapusta")
     .bind("HitOn",function(){
         alert("przegrales")
     })
-    ant.vx = randomXVel
-    ant.vy = randomYVel
+    robak.vx = randomXVel
+    robak.vy = randomYVel
     
 
 }
@@ -143,7 +153,7 @@ function spawnBullet(){
 Crafty.scene("main", function(){
     generateWorld();
     kapusta = Crafty.e("2D, Canvas, Fourway, Collision, kapusta")
-    .attr({x:360, y:210, w:100, h:100})
+    .attr({x:szerokosc/2-40, y:wysokosc/2-40})
     .fourway(250)
     .collision()
 
